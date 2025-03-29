@@ -1,22 +1,58 @@
 <!DOCTYPE html>
+<!-- 
+  DOCUMENTO PRINCIPAL DO CHAT 
+  Idioma: Português (pt)
+  Autor: [Seu Nome]
+  Versão: 1.0
+-->
 <html lang="pt">
 <head>
-    <meta charset="UTF-8">
-    <title>Chat WebSocket</title>
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <!-- METADADOS DA PÁGINA -->
+    <meta charset="UTF-8"> <!-- Codificação de caracteres Unicode -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsividade -->
+    <title>Chat WebSocket</title> <!-- Título da página -->
+    
+    <!-- FOLHA DE ESTILOS -->
+    <link rel="stylesheet" type="text/css" href="style.css" /> <!-- Arquivo CSS principal -->
 </head>
 <body>
+    <!-- ===========================================
+         COMPONENTE DE NOTIFICAÇÕES
+         =========================================== -->
     <div class="notification-container" onclick="toggleNotificationMenu()">
+        <!-- Ícone de sino com badge de contagem -->
         🔔<span class="notification-badge" id="notification-badge">0</span>
+        
+        <!-- Menu suspenso de notificações (inicialmente vazio) -->
         <div class="notification-menu" id="notification-menu"></div>
     </div>
+
+    <!-- ===========================================
+         CONTAINER PRINCIPAL DO CHAT
+         =========================================== -->
     <div class="chat-container">
+        <!-- Área de exibição das mensagens -->
         <div class="chat-box" id="chat-box"></div>
+        
+        <!-- Área de composição de mensagens -->
         <div class="input-box">
-            <input type="text" id="message" placeholder="Digite uma mensagem...">
-            <button onclick="sendMessage()">Enviar</button>
+            <!-- Campo de texto para digitar mensagens -->
+            <textarea 
+                id="message" 
+                placeholder="Digite uma mensagem..."
+                aria-label="Campo para digitar mensagens"
+            ></textarea>
+            
+            <!-- Botão de envio -->
+            <button onclick="sendMessage()" aria-label="Enviar mensagem">
+                Enviar
+            </button>
         </div>
     </div>
-    <script src="chat.js"></script>
+
+    <!-- ===========================================
+         SCRIPTS DA APLICAÇÃO
+         =========================================== -->
+    <script src="chat.js"></script> <!-- Arquivo JavaScript principal -->
 </body>
 </html>

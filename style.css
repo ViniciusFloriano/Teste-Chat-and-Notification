@@ -1,96 +1,222 @@
-body {
-    font-family: Arial, sans-serif;
+/* ============================================================================
+   ESTILOS GERAIS DA PÁGINA
+   ============================================================================ */
+
+/**
+ * Estilos base do corpo da página
+ * - Layout flex centralizado vertical e horizontalmente
+ * - Fundo cinza claro
+ * - Remove margens padrão
+ */
+ body {
+    font-family: Arial, sans-serif; /* Fonte padrão */
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #e0e0e0;
-    margin: 0;
-    flex-direction: column;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    height: 100vh; /* 100% da altura da viewport */
+    background-color: #e0e0e0; /* Cor de fundo */
+    margin: 0; /* Remove margens padrão */
+    flex-direction: column; /* Organiza os itens em coluna */
 }
+
+/* ============================================================================
+   COMPONENTE DE NOTIFICAÇÕES
+   ============================================================================ */
+
+/* Container principal das notificações */
 .notification-container {
     position: absolute;
     top: 10px;
-    right: 10px;
-    cursor: pointer;
-    font-size: 24px;
-    position: relative;
+    left: 10px;
+    cursor: pointer; /* Muda cursor para indicar clique */
+    font-size: 24px; /* Tamanho do ícone de sino */
 }
+
+/* Badge de contagem de notificações */
 .notification-badge {
     position: absolute;
     top: -5px;
     right: -5px;
-    background: red;
+    background: red; /* Cor de destaque */
     color: white;
     font-size: 12px;
-    border-radius: 50%;
+    border-radius: 50%; /* Formato circular */
     padding: 4px 8px;
-    display: none;
+    display: none; /* Inicialmente oculto */
 }
+
+/* Menu suspenso de notificações */
 .notification-menu {
     position: absolute;
     top: 30px;
-    right: 0;
+    left: 0;
     background: white;
     border: 1px solid #ccc;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    display: none;
-    width: 200px;
-    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    display: none; /* Inicialmente oculto */
+    width: 250px; /* Largura fixa */
+    border-radius: 5px; /* Cantos arredondados */
+    max-height: 300px; /* Altura máxima antes do scroll */
+    overflow-y: auto; /* Habilita scroll vertical */
+    overscroll-behavior: contain; /* Scroll independente */
+    scrollbar-width: thin; /* Scrollbar fina */
+    scrollbar-color: #ccc #f5f5f5; /* Cores do scroll */
+    z-index: 1000; /* Garante que fique acima de outros elementos */
 }
-.notification-menu div {
-    padding: 10px;
-    border-bottom: 1px solid #eee;
+
+/* Estilização personalizada do scrollbar para WebKit */
+.notification-menu::-webkit-scrollbar {
+    width: 6px; /* Largura do scrollbar */
 }
+.notification-menu::-webkit-scrollbar-thumb {
+    background-color: #ccc; /* Cor do "puxador" do scroll */
+    border-radius: 3px; /* Bordas arredondadas */
+}
+
+/* Itens individuais de notificação */
+.notification-message {
+    padding: 8px 10px;
+    border-bottom: 1px solid #eee; /* Divisor entre notificações */
+    font-size: 14px;
+    max-width: 100%; /* Garante que não ultrapasse o container */
+    word-wrap: break-word; /* Quebra palavras longas */
+    padding-right: 10px; /* Espaço para o scroll */
+}
+
+/* Layout do conteúdo da notificação */
+.notification-content {
+    display: flex;
+    gap: 5px; /* Espaço entre remetente e mensagem */
+}
+
+/* Estilo do nome do remetente na notificação */
+.notification-sender {
+    font-weight: bold; /* Destaque para o nome */
+    white-space: nowrap; /* Impede quebra de linha */
+}
+
+/* Texto da notificação */
+.notification-text {
+    white-space: pre-line; /* Mantém quebras de linha */
+    word-break: break-word; /* Quebra palavras longas */
+}
+
+/* ============================================================================
+   COMPONENTE PRINCIPAL DO CHAT
+   ============================================================================ */
+
+/* Container principal do chat */
 .chat-container {
-    width: 400px;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 400px; /* Largura fixa */
+    background: white; /* Fundo branco */
+    border-radius: 10px; /* Cantos arredondados */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
     display: flex;
-    flex-direction: column;
-    overflow: hidden;
+    flex-direction: column; /* Organização vertical */
+    overflow: hidden; /* Esconde conteúdo que ultrapassar */
 }
+
+/* Área de exibição das mensagens */
 .chat-box {
-    height: 400px;
-    overflow-y: auto;
+    height: 400px; /* Altura fixa */
+    overflow-y: auto; /* Scroll vertical quando necessário */
     padding: 10px;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #ccc; /* Divisor visual */
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Organiza mensagens em coluna */
 }
+
+/* ============================================================================
+   ESTILOS DAS MENSAGENS
+   ============================================================================ */
+
+/* Estilo base para todas as mensagens */
 .message {
     padding: 8px 12px;
     margin: 5px 0;
-    border-radius: 15px;
-    max-width: 75%;
-    word-wrap: break-word;
+    border-radius: 15px; /* Bolhas de conversação */
+    max-width: 75%; /* Largura máxima para boas proporções */
+    word-wrap: break-word; /* Quebra palavras longas */
 }
+
+/* Mensagens enviadas pelo usuário atual */
 .sent {
-    background-color: #d1e7dd;
-    align-self: flex-end;
+    background-color: #d1e7dd; /* Cor verde suave */
+    align-self: flex-end; /* Alinha à direita */
+    margin-left: auto; /* Empurra para a direita */
+    text-align: left; /* Alinhamento interno do texto */
 }
+
+/* Mensagens recebidas de outros usuários */
 .received {
-    background-color: #d6d6d6;
-    align-self: flex-start;
+    background-color: #d6d6d6; /* Cor cinza */
+    align-self: flex-start; /* Alinha à esquerda */
 }
+
+/* Container do conteúdo da mensagem */
+.message-content {
+    display: flex;
+    gap: 5px; /* Espaço entre elementos */
+}
+
+/* Ajuste específico para mensagens recebidas */
+.received .message-content {
+    flex-direction: row; /* Layout horizontal */
+    align-items: baseline; /* Alinha na base do texto */
+}
+
+/* Estilo do nome do remetente */
+.message-sender {
+    font-weight: bold; /* Destaque para o nome */
+    white-space: nowrap; /* Impede quebra de linha */
+    margin-right: 5px; /* Espaço após o nome */
+}
+
+/* Estilo do texto da mensagem */
+.message-text {
+    white-space: pre-line; /* Mantém quebras de linha */
+    word-break: break-word; /* Quebra palavras longas */
+}
+
+/* Indentação para linhas quebradas em mensagens recebidas */
+.received .message-text {
+    text-indent: calc(var(--sender-width) + 5px); /* Alinhamento dinâmico */
+}
+
+/* ============================================================================
+   ÁREA DE ENVIO DE MENSAGENS
+   ============================================================================ */
+
+/* Container do campo de entrada */
 .input-box {
     display: flex;
-    border-top: 1px solid #ccc;
-    background: white;
+    height: 64px; /* Altura fixa */
 }
-input {
-    flex: 1;
-    padding: 10px;
+
+/* Campo de texto para digitar mensagens */
+.input-box textarea {
     border: none;
-    outline: none;
+    outline: none; /* Remove contorno padrão */
     font-size: 16px;
+    resize: none; /* Impede redimensionamento */
+    width: 85%; /* Largura proporcional */
+    overflow-y: auto; /* Scroll se necessário */
+    padding: 10px; /* Espaçamento interno */
 }
+
+/* Botão de enviar */
 button {
     padding: 10px 15px;
     border: none;
-    background: #28a745;
+    background: #28a745; /* Cor verde */
     color: white;
-    cursor: pointer;
+    cursor: pointer; /* Ícone de mão ao passar */
     font-size: 16px;
+    height: 100%; /* Altura total do container */
+    transition: background 0.3s; /* Transição suave */
+}
+
+/* Efeito hover no botão */
+button:hover {
+    background: #218838; /* Verde mais escuro */
 }
