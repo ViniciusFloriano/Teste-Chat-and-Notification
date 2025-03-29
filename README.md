@@ -36,7 +36,7 @@ php chat-server.php
 
 Mantenha este terminal aberto enquanto estiver usando o chat.
 
-# Acessando o Chat
+## Acessando o Chat
 
 1. ### Abra o arquivo index.html em seu navegador:
 - Você pode usar um servidor local como o Live Server do VS Code
@@ -46,7 +46,7 @@ Mantenha este terminal aberto enquanto estiver usando o chat.
 - Abra outra aba/anônima no navegador
 - Ou use um navegador diferente
 
-# 🧩 Estrutura do Projeto
+## 🧩 Estrutura do Projeto
 ```
 Teste-Chat-and-Notification/
 ├── chat-server.php      # Servidor WebSocket
@@ -57,7 +57,7 @@ Teste-Chat-and-Notification/
 └── README.md            # Este arquivo
 ```
 
-# 📌 Recursos Implementados
+## 📌 Recursos Implementados
 
 #### ✔️ Chat em tempo real
 #### ✔️ Notificações de novas mensagens
@@ -65,7 +65,7 @@ Teste-Chat-and-Notification/
 #### ✔️ Suporte a quebras de linha e mensagens longas
 #### ✔️ Design responsivo
 
-# 🎮 Como Usar o Chat
+## 🎮 Como Usar o Chat
 Ao abrir o chat, você será automaticamente atribuído a um id de usuário aleatório
 
 Digite sua mensagem no campo de texto
@@ -74,13 +74,13 @@ Pressione Enter ou clique em "Enviar"
 
 As mensagens aparecerão em tempo real em todas as janelas conectadas
 
-# 🔔 Notificações:
+## 🔔 Notificações:
 
 Quando receber uma mensagem em segundo plano, um ícone de sino mostrará o número de mensagens não lidas
 
 Clique no sino para ver as notificações
 
-# 🐛 Solução de Problemas
+## 🐛 Solução de Problemas
 ### Mensagens não aparecem:
 - Verifique se o servidor está rodando
 - Confira o console do navegador (F12 > Console) por erros
@@ -91,6 +91,6 @@ Certifique-se de que:
 - Você está acessando pelo mesmo domínio/porta
 - Nenhum firewall está bloqueando a conexão
 
-# 📚 Dependências
+## 📚 Dependências
 #### Ratchet - Biblioteca WebSocket para PHP
 #### Composer - Gerenciador de dependências PHP
