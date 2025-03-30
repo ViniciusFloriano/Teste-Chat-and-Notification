@@ -15,8 +15,8 @@ Um sistema simples de chat em tempo real utilizando WebSocket com PHP Ratchet no
 Primeiro, clone o repositório:
 
 ```bash
-git clone https://github.com/seu-usuario/websocket-chat.git
-cd websocket-chat
+git clone https://github.com/ViniciusFloriano/Teste-Chat-and-Notification.git
+cd Teste-Chat-and-Notification
 ```
 
 Instale as dependências do PHP:
